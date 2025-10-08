@@ -22,7 +22,7 @@ This README shows every step to build and flash a minimal firmware for the **NUC
 10. [Debug Session (Optional but Recommended)](#debug-session-optional-but-recommended)  
 11. [VS Code IntelliSense (Optional, Nice to Have)](#vs-code-intellisense-optional-nice-to-have)  
 12. [Extend the Project (Add Peripherals)](#extend-the-project-add-peripherals)  
-13. [How Others Can Use This Repo](#how-others-can-use-this-repo)  
+13. [Use this skeleton for a brand‑new project](#use-this-skeleton-for-a-brand‑new-project)  
 14. [Troubleshooting](#troubleshooting)  
 15. [Why This Approach (Industry Rationale)](#why-this-approach-industry-rationale)
 
