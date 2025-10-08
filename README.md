@@ -22,7 +22,7 @@ This README shows every step to build and flash a minimal firmware for the **NUC
 10. [Debug Session (Optional but Recommended)](#debug-session-optional-but-recommended)  
 11. [VS Code IntelliSense (Optional, Nice to Have)](#vs-code-intellisense-optional-nice-to-have)  
 12. [Extend the Project (Add Peripherals)](#extend-the-project-add-peripherals)  
-13. [Use this skeleton for a brand‑new project](#use-this-skeleton-for-a-brand‑new-project)  
+13. [Use this skeleton (duplicate locally, no history)](#use-this-skeleton-duplicate-locally-no-history)  
 14. [Troubleshooting](#troubleshooting)  
 15. [Why This Approach (Industry Rationale)](#why-this-approach-industry-rationale)
 
@@ -254,7 +254,7 @@ When you add new modules (e.g., UART, SPI, I²C, ADC+DMA):
 
 ---
 
-## Use this skeleton for a **brand‑new project** (duplicate locally, *no history*)
+## Use this skeleton (duplicate locally, no history)
 
 This path gives you a clean repo that has the **same files/structure** as the skeleton, but **none of its commit history**. It works on GitHub, GitLab, or any Git server.
 
