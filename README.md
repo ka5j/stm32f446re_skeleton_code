@@ -137,7 +137,7 @@ cp third_party/STM32CubeF4/Projects/STM32446E-Nucleo/Templates/STM32CubeIDE/STM3
 
 Create `src/main.c`:
 
-Create `src/stm32f4xx_it.c`
+Create `src/stm32f4xx_it.c`:
 
 **Why src/stm32f4xx_it.c?** 
 This file holds the interrupt service routines (ISRs) for the MCU. The startup file (`startup_stm32f446xx.s`) defines a vector table with weak default handlers for every IRQ. To make an interrupt actually do something, you override the weak symbol by providing a function with the exact same name in C
