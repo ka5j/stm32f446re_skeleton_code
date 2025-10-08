@@ -329,7 +329,7 @@ git submodule update --init --recursive
 - That happens if you reconfigure an *existing* `build/` with a different toolchain file. Delete `build/` and re‑run the CMake command.
 
 **Submodule folder appears empty**
-This happens if submodules weren’t initialized.
+- This happens if submodules weren’t initialized.
 
 Fix:
 ```bash
