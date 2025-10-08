@@ -254,18 +254,62 @@ When you add new modules (e.g., UART, SPI, I²C, ADC+DMA):
 
 ---
 
-## How Others Can Use This Repo
-For collaborators/users:
+## Use this skeleton for a **brand‑new project** (duplicate locally, *no history*)
+
+This path gives you a clean repo that has the **same files/structure** as the skeleton, but **none of its commit history**. It works on GitHub, GitLab, or any Git server.
+
+> Summary of what you’ll do
+> 1) Copy files from the skeleton (without keeping its history)  
+> 2) Start fresh Git history on your machine  
+> 3) Connect your own remote and push  
+> 4) Initialize any submodules this skeleton uses
+
+### Step‑by‑step
 
 ```bash
-git clone --recursive <repo-url>
-cd stm32f446re_skeleton_code
-git submodule update --init --recursive   # if they forgot --recursive
-cmake -S . -B build -G Ninja -DCMAKE_TOOLCHAIN_FILE=cmake/arm-gcc-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug
-ninja -C build
-openocd -f board/st_nucleo_f4.cfg -c "program build/nucleo_f446re_blinky.elf verify reset exit"
+# 0) (Recommended) Create an EMPTY repo on your Git host first
+#    Example: https://github.com/<you>/<my_new_proj>
+#    Leave it empty (no README/license/gitignore), or it's fine to overwrite later.
+
+# 1) Copy the skeleton files to a new local folder
+git clone https://github.com/ka5j/stm32f446re_skeleton_code.git my_new_proj
+cd my_new_proj
+
+# 2) Remove the skeleton's Git history and start fresh
+rm -rf .git
+
+# Initialize a new repo with 'main' as the default branch (Git ≥ 2.28)
+git init -b main
+# If your Git is older:
+# git init
+# git checkout -b main
+
+# 3) Make the first commit in your NEW project
+git add .
+git commit -m "Start from skeleton (fresh history)"
+
+# 4) Connect your own remote and push
+git remote add origin https://github.com/<you>/<my_new_proj>.git
+git push -u origin main
+
+# 5) Pull submodule contents (if this skeleton uses any)
+git submodule sync --recursive
+git submodule update --init --recursive
 ```
-They get the **same HAL version** and build settings you used.
+
+### Why these exact commands?
+- `rm -rf .git` wipes the old history so your project starts clean.  
+- `git init -b main` creates a new repo with **main** as the default branch (works on Git ≥ 2.28).  
+- `git remote add origin …` ties your local repo to your new server‑side repo.  
+- `git submodule update --init --recursive` ensures **all** submodules (including nested ones) are fetched at the versions recorded by this skeleton.
+
+### Tips
+- Need to change the remote URL later?  
+  ```bash
+  git remote set-url origin https://github.com/<you>/<my_new_proj>.git
+  ```
+- Forgot to create the remote first? You can create it after Step 3, then run Step 4.  
+- Prefer history **mirroring** (to copy all commits/branches)? Use your host’s “mirror/duplicate repository” instructions instead—this snippet is specifically for **no history**.
 
 ---
 
