@@ -328,6 +328,24 @@ git submodule update --init --recursive
 **Toolchain warning about CMAKE_TOOLCHAIN_FILE**  
 - That happens if you reconfigure an *existing* `build/` with a different toolchain file. Delete `build/` and re‑run the CMake command.
 
+**Submodule folder appears empty**
+This happens if submodules weren’t initialized.
+
+Fix:
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+- If it’s still empty, confirm it’s a submodule (gitlink) not a normal folder:
+```bash
+git ls-files --stage | grep 160000 || echo "no gitlinks found"
+```
+- If no gitlink, re-add:
+```bash
+rm -rf third_party/STM32CubeF4
+git submodule add https://github.com/STMicroelectronics/STM32CubeF4.git third_party/STM32CubeF4
+git submodule update --init --recursive
+```
 ---
 
 ## Why This Approach (Industry Rationale)
